@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Card, CardHeader, CardTitle } from "../ui/card";
-import { gql } from "@/src/lib/graphql/client";
-import { GET_ALL_MUSIC } from "@/src/lib/graphql/get-music/queries";
 import type { GetMusicData } from "@/src/lib/graphql/get-music/types";
-import type { Section } from "@/src/domain/music";
 import { Mic, Disc3, Music } from "lucide-react";
 import Spinner from "../common/Spinner";
 import MusicItemCard from "./musicItemCard";
+import { GET_ALL_MUSIC } from "@/src/lib/graphql/get-music/queries";
+import { useQuery } from "@apollo/client/react";
+import { Section } from "@/src/domain/music";
 
 function getSectionIcon(label: Section["label"]) {
     switch (label) {
@@ -22,18 +22,9 @@ function getSectionIcon(label: Section["label"]) {
 }
 
 export default function MusicPage() {
-    const [data, setData] = useState<GetMusicData | null>(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        gql<GetMusicData>(GET_ALL_MUSIC)
-            .then(setData)
-            .catch((e) => {
-                console.error(e);
-                setData(null);
-            })
-            .finally(() => setLoading(false));
-    }, []);
+    const { data, loading } = useQuery<GetMusicData>(GET_ALL_MUSIC, {
+        fetchPolicy: "no-cache",
+    });
 
     const sections: Section[] = useMemo(() => {
         if (!data) return [];
