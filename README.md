@@ -20,8 +20,8 @@ Follow these steps to run the project locally.
 1. Clone the repo
 
 ```bash
-git clone https://github.com/itskhashman/Music-frontend.git
-cd Music-frontend
+git clone https://github.com/itskhashman/music-app-frontend.git
+cd music-app-frontend
 ```
 
 
