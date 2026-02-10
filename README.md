@@ -32,9 +32,9 @@ npm install
 
 3. Configure environment variables
 
-Create a `.env.local` file in the project root.
+Create a `.env` file in the project root.
 
-`.env.local` file :
+`.env` file :
 
 ```Example:
 
