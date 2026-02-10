@@ -4,7 +4,6 @@ const nextConfig = {
     root: __dirname,
   },
   output: "standalone",
-
 };
 
 module.exports = nextConfig;

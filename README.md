@@ -51,5 +51,3 @@ App will run on:
 ```bash
 http://localhost:3000/
 ```
-
-

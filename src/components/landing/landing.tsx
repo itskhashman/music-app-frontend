@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
-import { Circle, Music } from "lucide-react";
+import { Music } from "lucide-react";
 
 export default function LandingPage() {
     const router = useRouter();
